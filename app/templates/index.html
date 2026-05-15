@@ -1,14 +1,18 @@
-{%extends 'base.html'%} {%block content%}
+{%extends 'base.html'%} {%block content%} {% load django_bootstrap5 %} {%load static%}
 <head>
   <link rel="icon" href="" type="image/gif" sizes="16x16">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
     <link rel="stylesheet" href="">
+  {% bootstrap_css %}
 </head>
 <body>
+
   <div class="container">
 <h1>Cipher Developers And Services</h1>
       </div>
 </body>
+
+{% bootstrap_javascript %}
 {%endblock%}
