@@ -1,18 +1,1049 @@
 {%extends 'base.html'%} {%block content%} {% load django_bootstrap5 %} {%load static%}
+<html>
 <head>
   <link rel="icon" href="" type="image/gif" sizes="16x16">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
-    <link rel="stylesheet" href="">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   {% bootstrap_css %}
 </head>
 <body>
+<!-- ══════════ HEADER CAROUSEL ══════════ -->
+<header>
+  <!-- Carousel Track -->
+  <div class="carousel-track" id="carouselTrack">
 
-  <div class="container">
-<h1>Cipher Developers And Services</h1>
+    <!-- Slide 1 — CCTV -->
+    <div class="carousel-slide slide-1">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">📷</div>
+    </div>
+
+    <!-- Slide 2 — Access Control -->
+    <div class="carousel-slide slide-2">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">🔏</div>
+    </div>
+
+    <!-- Slide 3 — Networking -->
+    <div class="carousel-slide slide-3">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">🌐</div>
+    </div>
+
+    <!-- Slide 4 — Electric Fence -->
+    <div class="carousel-slide slide-4">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">⚡</div>
+    </div>
+
+    <!-- Slide 5 — Razor Wire -->
+    <div class="carousel-slide slide-5">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">🔩</div>
+    </div>
+  </div>
+
+  <!-- Static content overlaid on carousel -->
+  <div class="header-inner">
+<!--    <div class="badge">Professional Services Portfolio</div>-->
+    <h1>Security &amp; <span>Surveillance</span></h1>
+    <p class="tagline" id="carouselTagline">
+      Comprehensive installation, configuration, and maintenance of security systems,
+      protecting people, property, and assets with reliable, professional solutions.
+    </p>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&#8592;</button>
+  <button class="carousel-btn next" id="nextBtn" aria-label="Next">&#8594;</button>
+
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots"></div>
+</header>
+
+<main>
+
+  <!-- ══════════ INTRO ══════════ -->
+  <div class="intro-box">
+    We deliver end-to-end security solutions tailored to residential, commercial, and industrial
+    environments. From CCTV and biometric access control to electric fencing and network
+    infrastructure, every installation is carried out with precision, quality components, and a
+    commitment to long-term reliability. All pricing is in Kenya Shillings and excludes
+    the cost of client-supplied devices unless otherwise stated. A 50% deposit is required to
+    confirm all bookings.
+  </div>
+
+  <!-- ══════════ SERVICES OVERVIEW ══════════ -->
+  <div class="section-label">
+    <h2>Our Services</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card" style="animation-delay:0.05s">
+      <div class="icon">📷</div>
+      <h3>CCTV</h3>
+      <p>Keep your premises under continuous, reliable watch. We install, focus, configure, maintain, troubleshoot, relocate, and activate CCTV systems for any scale of property.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.1s">
+      <div class="icon">🔩</div>
+      <h3>Razor Wire</h3>
+      <p>A high-security perimeter barrier featuring sharp-edged metal blades on high-tensile core wire, designed to deter and obstruct unauthorised entry effectively.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.15s">
+      <div class="icon">🔏</div>
+      <h3>Biometrics</h3>
+      <p>Grant access using who someone is, not what they carry. Biometric systems verify identity through fingerprints, facial recognition, or iris scans, eliminating lost cards and shared PINs.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.2s">
+      <div class="icon">🪪</div>
+      <h3>Access Control</h3>
+      <p>Manage and restrict entry with credential-based systems using cards, fobs, or PINs. Ideal for controlling access to offices, server rooms, gates, and restricted zones.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.25s">
+      <div class="icon">🔔</div>
+      <h3>Intercom</h3>
+      <p>Enable instant, secure two-way voice communication between entry points and interior spaces, keeping your property connected without relying on public telephone networks.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.3s">
+      <div class="icon">⚡</div>
+      <h3>Electric Fence</h3>
+      <p>A proven security barrier delivering non-lethal, high-voltage low-amperage pulses to deter intruders. Suitable for residential, commercial, and agricultural perimeters.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.35s">
+      <div class="icon">🌐</div>
+      <h3>Networking</h3>
+      <p>Connect and secure your devices, cameras, biometrics, computers, servers, and phones across reliable LAN or internet infrastructure using routers, switches, and firewalls.</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ CCTV PRICING ══════════ -->
+  <div class="section-label">
+    <h2>Pricing</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="pricing-block">
+    <h3>CCTV Systems</h3>
+    <p class="sub">Per device — pricing varies by location and labour intensity</p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price </th>
+          <th>Deposit (50%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation / Maintenance / Relocation</td>
+          <td class="amount">1,500</td>
+          <td class="deposit">750</td>
+        </tr>
+        <tr>
+          <td>Configuration</td>
+          <td class="amount">500</td>
+          <td class="deposit">250</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Total Per Device</strong></td>
+          <td class="amount"><strong>2,000</strong></td>
+          <td class="deposit"><strong>1,000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      Prices above are starting rates. Final cost depends on installation complexity, height, and distance of cable runs. A detailed quote is provided before work commences.
+    </div>
+  </div>
+
+  <!-- Camera Types -->
+  <div class="req-block">
+    <h4>Camera Types</h4>
+    <div class="camera-compare">
+      <div class="cam-card">
+        <h4>IP Cameras</h4>
+        <p>Digitise and process video within the camera itself, transmitting data over an Ethernet network. Supports higher resolutions (4K+), smarter motion detection, and easier scalability.</p>
       </div>
-</body>
+      <div class="cam-card">
+        <h4>Analogue Cameras</h4>
+        <p>Send raw video signals over coaxial cable to a DVR for processing. A cost-effective and reliable solution for standard-resolution surveillance requirements.</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- Requirements -->
+  <div class="req-block">
+    <h4>Requirements — IP Camera System</h4>
+    <ul class="req-list">
+      <li>Cat 6 Cable</li>
+      <li>NVR (Network Video Recorder)</li>
+      <li>Hard Disk</li>
+      <li>RJ45 Connectors</li>
+      <li>HDMI Cable</li>
+      <li>Monitor / Screen</li>
+      <li>Switch (multi-level installations)</li>
+      <li>Patch Cord (if online connection required)</li>
+      <li>Accessories (pipes, flex, screws, nails, couplers, bends, saddle clips, trunking, adapter boxes, etc.)</li>
+    </ul>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — Analogue Camera System</h4>
+    <ul class="req-list">
+      <li>Coaxial / Siamese Cable</li>
+      <li>DVR (Digital Video Recorder)</li>
+      <li>Hard Disk</li>
+      <li>Power Supply Unit</li>
+      <li>BNC Connectors</li>
+      <li>Power Jacks</li>
+      <li>HDMI Cable</li>
+      <li>Monitor / Screen</li>
+      <li>Switch (multi-level installations)</li>
+      <li>Patch Cord (if online connection required)</li>
+      <li>Accessories (pipes, flex, screws, nails, couplers, bends, saddle clips, trunking, cable ties, adapter boxes, etc.)</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ RAZOR WIRE ══════════ -->
+  <div class="pricing-block">
+    <h3>Razor Wire</h3>
+    <p class="sub">Installation and supply pricing per roll (450 mm × 10 m)</p>
+
+    <table class="price-table">
+      <thead>
+        <tr><th>Item</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation (per roll)</td>
+          <td class="amount">1,000</td>
+          <td class="deposit">50%</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="req-block">
+    <h4>Material Types</h4>
+    <div class="type-row">
+      <div class="type-pill">
+        Stainless Steel
+        <span>1,600 / roll</span>
+      </div>
+      <div class="type-pill">
+        PVC Coated
+        <span>2,100 / roll</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — Razor Wire Installation</h4>
+    <ul class="req-list">
+      <li>Steel Nails</li>
+      <li>Binding Wire</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ BIOMETRICS ══════════ -->
+  <div class="pricing-block">
+    <h3>Biometrics</h3>
+    <p class="sub">Installation labour fee based on device value</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation</td>
+          <td class="amount">40% – 60% of device cost</td>
+          <td class="deposit">50% of installation fee</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — Biometric System</h4>
+    <ul class="req-list">
+      <li>12V Power Supply</li>
+      <li>Backup Battery</li>
+      <li>Alarm Cable (4-core or 6-core)</li>
+      <li>Magnetic Lock</li>
+      <li>Break Glass (Emergency Exit)</li>
+      <li>Exit Button</li>
+      <li>Door Closer</li>
+      <li>Ethernet Cable (if online connection required)</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ ACCESS CONTROL ══════════ -->
+  <div class="pricing-block">
+    <h3>Access Control</h3>
+    <p class="sub">Installation labour fee based on device value</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation</td>
+          <td class="amount">40% – 60% of device cost</td>
+          <td class="deposit">50% of installation fee</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — Access Control System</h4>
+    <ul class="req-list">
+      <li>12V Power Supply</li>
+      <li>Backup Battery</li>
+      <li>Alarm Cable (4-core or 6-core)</li>
+      <li>Magnetic Lock</li>
+      <li>Break Glass (Emergency Exit)</li>
+      <li>Door Closer</li>
+      <li>Ethernet Cable (if online connection required)</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ INTERCOM ══════════ -->
+  <div class="pricing-block">
+    <h3>Intercom Systems</h3>
+    <p class="sub">Installation labour fee based on device value</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation</td>
+          <td class="amount">40% – 60% of device cost</td>
+          <td class="deposit">50% of installation fee</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — Intercom System</h4>
+    <ul class="req-list">
+      <li>Alarm Cable (4-core or 6-core)</li>
+      <li>Cat 6 Cable</li>
+      <li>RJ45 Connectors</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ ELECTRIC FENCE ══════════ -->
+  <div class="pricing-block">
+    <h3>Electric Fence</h3>
+    <p class="sub">Pricing on request — contact us for a site-specific quotation</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Installation &amp; Configuration</td>
+          <td class="amount">Quote on request</td>
+          <td class="deposit">50% on confirmation</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      Electric fence pricing depends on perimeter length, terrain, energiser specification, and number of zones required. Contact us for a free site assessment and written quotation.
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ══════════ NETWORKING ══════════ -->
+  <div class="pricing-block">
+    <h3>Networking</h3>
+    <p class="sub">Pricing on request — contact us for a site-specific quotation</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Network Design, Installation &amp; Configuration</td>
+          <td class="amount">Quote on request</td>
+          <td class="deposit">50% on confirmation</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      Networking solutions include structured cabling, router and switch configuration, firewall setup, and integration with CCTV and access control systems. Pricing varies by scope and number of devices.
+    </div>
+  </div>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <div class="contact-strip">
+    <div>
+      <h2>Get In Touch</h2>
+      <p>Request a free site assessment or written quotation for your project.</p>
+    </div>
+    <a href="" class="cta-btn">Request a Quote →</a>
+  </div>
+
+</main>
+</body>
+</html>
+<style>
+
+  :root {
+    --black: #0a0a0a;
+    --dark: #111214;
+    --card: #16181c;
+    --border: #2a2d35;
+    --accent: #e8b84b;
+    --accent2: #c0392b;
+    --text: #e0e2e8;
+    --muted: #7a7f8e;
+    --light: #f4f4f4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── CAROUSEL HEADER ── */
+  header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Slides */
+  .carousel-track {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    transition: none;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* SVG-based placeholder "images" — security themed */
+  .carousel-slide .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.8s ease;
+  }
+
+  /* Dark gradient overlay so text is always readable */
+  .carousel-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(10,10,10,0.88) 0%,
+      rgba(10,10,10,0.55) 55%,
+      rgba(10,10,10,0.2) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Slide backgrounds — distinct security-themed SVG patterns */
+  .slide-1 .slide-bg {
+    background-color: #0d1117;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,184,75,0.12) 0%, transparent 70%),
+      repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(232,184,75,0.04) 30px, rgba(232,184,75,0.04) 31px),
+      repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(232,184,75,0.03) 30px, rgba(232,184,75,0.03) 31px);
+  }
+
+  .slide-2 .slide-bg {
+    background-color: #0a0f0d;
+    background-image:
+      radial-gradient(ellipse 70% 80% at 65% 40%, rgba(0,200,100,0.10) 0%, transparent 65%),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,200,100,0.04) 40px, rgba(0,200,100,0.04) 41px),
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,200,100,0.03) 40px, rgba(0,200,100,0.03) 41px);
+  }
+
+  .slide-3 .slide-bg {
+    background-color: #0d0d14;
+    background-image:
+      radial-gradient(ellipse 90% 60% at 60% 55%, rgba(80,120,255,0.13) 0%, transparent 70%),
+      repeating-linear-gradient(60deg, transparent, transparent 35px, rgba(80,120,255,0.04) 35px, rgba(80,120,255,0.04) 36px);
+  }
+
+  .slide-4 .slide-bg {
+    background-color: #120d0d;
+    background-image:
+      radial-gradient(ellipse 75% 70% at 68% 45%, rgba(192,57,43,0.14) 0%, transparent 68%),
+      repeating-linear-gradient(135deg, transparent, transparent 28px, rgba(192,57,43,0.04) 28px, rgba(192,57,43,0.04) 29px);
+  }
+
+  .slide-5 .slide-bg {
+    background-color: #0d100f;
+    background-image:
+      radial-gradient(ellipse 80% 65% at 62% 50%, rgba(232,184,75,0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,200,100,0.07) 0%, transparent 50%),
+      repeating-linear-gradient(30deg, transparent, transparent 50px, rgba(232,184,75,0.03) 50px, rgba(232,184,75,0.03) 51px);
+  }
+
+  /* Decorative icon element on right side of slide */
+  .slide-icon {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 140px;
+    opacity: 0.07;
+    z-index: 2;
+    pointer-events: none;
+    filter: blur(1px);
+    line-height: 1;
+  }
+
+  .header-inner {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    padding: 0 40px;
+  }
+
+  /* Carousel controls */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(232,184,75,0.12);
+    border: 1px solid rgba(232,184,75,0.3);
+    color: var(--accent);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .carousel-btn:hover { background: rgba(232,184,75,0.25); }
+  .carousel-btn.prev { left: 16px; }
+  .carousel-btn.next { right: 16px; }
+
+  /* Dots */
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(232,184,75,0.3);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    padding: 0;
+  }
+
+  .dot.active {
+    background: var(--accent);
+    transform: scale(1.3);
+  }
+
+  /* Slide label tag */
+  .slide-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,184,75,0.4);
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease both;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    letter-spacing: 0.04em;
+    color: var(--light);
+    line-height: 0.95;
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .tagline {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 560px;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 40px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .section-label h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: var(--light);
+  }
+
+  .section-label .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── INTRO ── */
+  .intro-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    margin-bottom: 64px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  /* ── SERVICE CARDS ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+  }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    transition: border-color 0.25s, transform 0.25s;
+    animation: fadeUp 0.6s ease both;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .service-card .icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .service-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--light);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* ── PRICING TABLES ── */
+  .pricing-block {
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .pricing-block h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .pricing-block p.sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .price-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--dark);
+  }
+
+  .price-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .price-table tr:last-child td { border-bottom: none; }
+
+  .price-table tr:hover td { background: rgba(232,184,75,0.04); }
+
+  .price-table .label { color: var(--muted); font-size: 13px; }
+  .price-table .amount {
+    font-family: 'DM Mono', monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .price-table .deposit {
+    font-family: 'DM Mono', monospace;
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  .total-row td {
+    background: rgba(232,184,75,0.07) !important;
+    font-weight: 600;
+  }
+
+  /* ── REQUIREMENTS ── */
+  .req-block {
+    margin-bottom: 40px;
+  }
+
+  .req-block h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .req-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+
+  .req-list li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding: 7px 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .req-list li::before {
+    content: '▸';
+    color: var(--accent);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* ── CAMERA TYPES ── */
+  .camera-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 600px) {
+    .camera-compare { grid-template-columns: 1fr; }
+  }
+
+  .cam-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 22px 24px;
+  }
+
+  .cam-card h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+
+  .cam-card p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── RAZOR WIRE TYPES ── */
+  .type-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .type-pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    font-size: 13.5px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+  }
+
+  .type-pill span {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* ── NOTE BOX ── */
+  .note-box {
+    background: rgba(192,57,43,0.08);
+    border: 1px solid rgba(192,57,43,0.3);
+    border-left: 3px solid var(--accent2);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-strip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 40px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 80px;
+  }
+
+  .contact-strip h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    color: var(--light);
+  }
+
+  .contact-strip p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px 0;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { height: 420px; }
+    main   { padding: 44px 24px; }
+    .header-inner { padding: 0 24px; }
+    .contact-strip { padding: 28px 24px; }
+  }
+</style>
 {% bootstrap_javascript %}
 {%endblock%}
+
+{% block scripts %}
+<!-- ══════════ CAROUSEL JAVASCRIPT ══════════ -->
+<!-- Paste this block just before {% bootstrap_javascript %} at the bottom of your file -->
+
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dotsContainer = document.getElementById('carouselDots');
+  const tagline = document.getElementById('carouselTagline');
+
+  const taglines = [
+    "CCTV Installation, Configuration & Maintenance — keeping every corner of your property under reliable watch, 24/7.",
+    "Biometric & Access Control Systems — grant access based on identity, not just credentials.",
+    "Structured Network Infrastructure — connecting your cameras, systems and devices across secure, high-performance networks.",
+    "Electric Fence Installation — non-lethal perimeter protection that deters intruders effectively.",
+    "Razor Wire & Perimeter Security — high-tensile barrier solutions for commercial, industrial and residential properties."
+  ];
+
+  let current = 0;
+  let autoTimer;
+
+  // Build dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function goTo(index) {
+    // Hide current slide
+    slides[current].style.opacity = '0';
+    slides[current].style.position = 'absolute';
+    dots[current].classList.remove('active');
+
+    // Move to next
+    current = (index + slides.length) % slides.length;
+
+    // Show new slide
+    slides[current].style.opacity = '1';
+    slides[current].style.position = 'relative';
+    dots[current].classList.add('active');
+
+    // Fade tagline text
+    tagline.style.opacity = '0';
+    tagline.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => {
+      tagline.textContent = taglines[current];
+      tagline.style.opacity = '1';
+    }, 300);
+
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  // Init: stack all slides, show only first
+  slides.forEach((s, i) => {
+    s.style.position = i === 0 ? 'relative' : 'absolute';
+    s.style.opacity  = i === 0 ? '1' : '0';
+    s.style.inset    = '0';
+    s.style.transition = 'opacity 0.8s ease';
+    s.style.minWidth = '100%';
+  });
+
+  // Wire up arrow buttons
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+  // Start auto-advance
+  resetTimer();
+</script>
+{% endblock %}
