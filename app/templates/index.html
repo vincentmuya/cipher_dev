@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
+  <meta name="description" content="Cipher Developers And Services — Professional CCTV, biometrics, access control, electric fence and networking installation in Kenya, Nairobi and Kiambu. Call +254 710 902 541.">
+  <meta name="keywords" content="CCTV installation, biometrics installation, access control installation, electric fence installation, security systems Kenya installation">
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   {% bootstrap_css %}
@@ -159,18 +161,18 @@
       <tbody>
         <tr>
           <td>Installation / Maintenance / Relocation</td>
-          <td class="amount">1,500</td>
-          <td class="deposit">750</td>
+          <td class="amount">Ksh 1,500</td>
+          <td class="deposit">Ksh 750</td>
         </tr>
         <tr>
           <td>Configuration</td>
-          <td class="amount">500</td>
-          <td class="deposit">250</td>
+          <td class="amount">Ksh 500</td>
+          <td class="deposit">Ksh 250</td>
         </tr>
         <tr class="total-row">
           <td><strong>Total Per Device</strong></td>
-          <td class="amount"><strong>2,000</strong></td>
-          <td class="deposit"><strong>1,000</strong></td>
+          <td class="amount"><strong>Ksh 2,000</strong></td>
+          <td class="deposit"><strong>Ksh 1,000</strong></td>
         </tr>
       </tbody>
     </table>
@@ -238,7 +240,7 @@
       <tbody>
         <tr>
           <td>Installation (per roll)</td>
-          <td class="amount">1,000</td>
+          <td class="amount">Ksh 1,000</td>
           <td class="deposit">50%</td>
         </tr>
 
@@ -251,11 +253,11 @@
     <div class="type-row">
       <div class="type-pill">
         Stainless Steel
-        <span>1,600 / roll</span>
+        <span>Ksh 1,600 / roll</span>
       </div>
       <div class="type-pill">
         PVC Coated
-        <span>2,100 / roll</span>
+        <span>Ksh 2,100 / roll</span>
       </div>
     </div>
   </div>
@@ -418,13 +420,48 @@
     </div>
     <a href="mailto:cipherdeveloperz@gmail.com" class="cta-btn">Request a Quote →</a>
     <p>Telephone: +254 710 902 541</p>
-    <p>© 2026 Cipher Developers And Services, All Rights Reserved.</p>
+    <a href="https://wa.me/254710902541" target="_blank" class="cta-btn">
+    WhatsApp Us →
+    </a>
+    <button class="reg-btn" onclick="document.getElementById('regModal').classList.add('active')">
+    🪪 View Business Registration
+  </button>
+    <p>© 2026 Cipher Developers And Services, All Rights Reserved.(Established 2018)</p>
     <p>Developed By <a href="https://vincentmuya.pythonanywhere.com/" target="_blank" style="color:rgb(232 184 75);">Vincent Gichuhi</a> </p>
   </div>
 
 </main>
 </body>
 </html>
+<!-- ══════════ BUSINESS REGISTRATION MODAL ══════════ -->
+<div class="modal-overlay" id="regModal" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('regModal').classList.remove('active')">✕</button>
+    <h3>Business Registration Certificate</h3>
+    <p style="font-size:13px; color:#7a7f8e; margin-bottom:12px;">
+      Business No. <span style="color:#e8b84b; font-family:'DM Mono',monospace;">BN-X2CQDQR</span>
+      · Registered: 29-11-2018 · Nairobi
+    </p>
+
+    <!-- Image instead of iframe — no download/print/save controls -->
+    <img
+      src="{% static 'images/business_registration_screenshot.jpg' %}"
+      alt="Cipher Developers And Services Business Registration Certificate"
+      style="
+        width: 100%;
+        border: 1px solid #2a2d35;
+        display: block;
+        pointer-events: none;
+      "
+      oncontextmenu="return false"
+      draggable="false"
+    />
+
+    <p style="font-size:11px; color:#7a7f8e; text-align:center; margin-top:10px; font-family:'DM Mono',monospace; letter-spacing:0.1em;">
+      To validate this certificate send BRS to 21546
+    </p>
+  </div>
+</div>
 {% bootstrap_javascript %}
 <style>
 :root {
@@ -944,6 +981,84 @@ transition: opacity 0.2s;
 }
 
 .cta-btn:hover { opacity: 0.85; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #16181c;
+  border: 1px solid #2a2d35;
+  border-top: 3px solid #e8b84b;
+  max-width: 780px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 32px;
+}
+
+.modal-box h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: #e0e2e8;
+  margin-bottom: 16px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: 1px solid #2a2d35;
+  color: #e8b84b;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.modal-close:hover { background: rgba(232,184,75,0.1); }
+
+.modal-box iframe {
+  width: 100%;
+  height: 520px;
+  border: 1px solid #2a2d35;
+  margin-top: 8px;
+}
+
+.reg-btn {
+  display: inline-block;
+  background: transparent;
+  color: #e8b84b;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1px solid #e8b84b;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.reg-btn:hover { background: rgba(232,184,75,0.1); }
 
 /* ── DIVIDER ── */
 .divider {
