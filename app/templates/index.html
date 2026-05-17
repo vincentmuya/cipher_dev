@@ -521,47 +521,62 @@
         <!-- ↓↓ ADD YOUR IMAGES BELOW — copy this block for each photo ↓↓ -->
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job1.jpg' %}" alt="CCTV Installation" loading="lazy"/>
-          <div class="gallery-caption">CCTV Installation</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="{% static 'images/gallery/job2.jpg' %}" alt="Biometric Access Control" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_2.jpg' %}" alt="Biometric Access Control" loading="lazy"/>
           <div class="gallery-caption">Biometric Access Control</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job3.jpg' %}" alt="Razor Wire Installation" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_1.jpg' %}" alt="CCTV Installation" loading="lazy"/>
+          <div class="gallery-caption">CCTV Installation</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_10.jpg' %}" alt="Razor Wire Installation" loading="lazy"/>
           <div class="gallery-caption">Razor Wire Installation</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job4.jpg' %}" alt="Electric Fence" loading="lazy"/>
-          <div class="gallery-caption">Electric Fence</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="{% static 'images/gallery/job5.jpg' %}" alt="Network Setup" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_11.png' %}" alt="Network Setup" loading="lazy"/>
           <div class="gallery-caption">Network Setup</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job6.jpg' %}" alt="Access Control" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_6.jpg' %}" alt="Electric Fence" loading="lazy"/>
+          <div class="gallery-caption">Electric Fence, Razor Wire & CCtv</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_4.jpg' %}" alt="CCTV Installation" loading="lazy"/>
+          <div class="gallery-caption">CCTV Installation</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_3.jpg' %}" alt="Access Control" loading="lazy"/>
           <div class="gallery-caption">Access Control</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job7.jpg' %}" alt="Access Control" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_7.jpg' %}" alt="Electric Fence" loading="lazy"/>
+          <div class="gallery-caption">Electric Fence, Razor Wire, CCTV</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_8.jpg' %}" alt="Solar Camera" loading="lazy"/>
+          <div class="gallery-caption">Out-Door Wireless Solar Camera</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_5.jpg' %}" alt="Access Control" loading="lazy"/>
+          <div class="gallery-caption">Networking</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="{% static 'images/gallery/job_11.png' %}" alt="Access Control" loading="lazy"/>
           <div class="gallery-caption">Access Control</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job8.jpg' %}" alt="Access Control" loading="lazy"/>
-          <div class="gallery-caption">Access Control</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="{% static 'images/gallery/job9.jpg' %}" alt="Access Control" loading="lazy"/>
+          <img src="{% static 'images/gallery/job_12.jpg' %}" alt="Access Control" loading="lazy"/>
           <div class="gallery-caption">Access Control</div>
         </div>
 
@@ -1263,6 +1278,7 @@ transition: opacity 0.2s;
 
 .gallery-item {
   min-width: calc((100% - 32px) / 3);
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border: 1px solid #2a2d35;
@@ -1440,7 +1456,7 @@ font-size: 13px;
 }
 h1 {
 font-family: 'Bebas Neue', sans-serif;
-font-size: clamp(41px, 8vw, 96px);
+font-size: clamp(33px, 8vw, 96px);
 letter-spacing: 0.04em;
 color: var(--light);
 line-height: 0.95;
@@ -1569,13 +1585,19 @@ padding: 44px 2px;
     }
   }
 
-  function goToSlide(index) {
-    current = (index + totalSlides()) % totalSlides();
-    track.style.transform = `translateX(-${current * visibleCount() * itemWidth()}px)`;
-    document.querySelectorAll('#galleryDots .dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
-  }
+function goToSlide(index) {
+  current = (index + totalSlides()) % totalSlides();
+
+  const count     = visibleCount();
+  const maxScroll = items.length - count; // never scroll past last item
+  const scrollBy  = Math.min(current * count, maxScroll);
+
+  track.style.transform = `translateX(-${scrollBy * itemWidth()}px)`;
+
+  document.querySelectorAll('#galleryDots .dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
 
   prevBtn.addEventListener('click', () => goToSlide(current - 1));
   nextBtn.addEventListener('click', () => goToSlide(current + 1));
