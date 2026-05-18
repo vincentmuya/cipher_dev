@@ -222,7 +222,7 @@
           <td class="deposit">Ksh 750</td>
         </tr>
         <tr>
-          <td>Configuration</td>
+          <td>Configuration / Remote Monitoring Mobile App</td>
           <td class="amount">Ksh 500</td>
           <td class="deposit">Ksh 250</td>
         </tr>
@@ -481,21 +481,22 @@
     </h2>
 
     <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+      <button onclick="openQuoteModal()" class="cta-btn">Request a Quote →</button>
       <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20free%20site%20survey"
          target="_blank"
          style="background:#e8b84b; color:#0a0a0a; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; font-weight:600;">
-        📍 Get Free Site Survey
+        𝑾𝒉𝒂𝒕𝒔𝑨pp|📍Get Free Site Survey| 📝 Request Free Consultation|
       </a>
-      <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20free%20consultation"
-         target="_blank"
-         style="background:transparent; color:#e8b84b; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; border:1px solid #e8b84b;">
-        💬 Request Free Consultation
-      </a>
-      <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20CCTV%20installation%20quote"
-         target="_blank"
-         style="background:transparent; color:#e8b84b; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; border:1px solid #e8b84b;">
-        📷 Get CCTV Installation Quote
-      </a>
+<!--      <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20free%20consultation"-->
+<!--         target="_blank"-->
+<!--         style="background:transparent; color:#e8b84b; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; border:1px solid #e8b84b;">-->
+<!--        💬 Request Free Consultation-->
+<!--      </a>-->
+<!--      <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20CCTV%20installation%20quote"-->
+<!--         target="_blank"-->
+<!--         style="background:transparent; color:#e8b84b; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; border:1px solid #e8b84b;">-->
+<!--        📷 Get CCTV Installation Quote-->
+<!--      </a>-->
     </div>
 
   </div>
@@ -606,10 +607,10 @@
       <h2>Get In Touch</h2>
       <p>Request a free site assessment or written quotation for your project.</p>
     </div>
-    <a href="mailto:cipherdeveloperz@gmail.com" class="cta-btn">Request a Quote →</a>
+<button onclick="openQuoteModal()" class="cta-btn">Request a Quote →</button>
     <p>Telephone: +254 710 902 541</p>
     <a href="https://wa.me/254710902541" target="_blank" class="cta-btn">
-    WhatsApp Us →
+    💬WhatsApp Us →
     </a>
     <button class="reg-btn" onclick="document.getElementById('regModal').classList.add('active')">
     🪪 View Business Registration
@@ -648,6 +649,232 @@
     <p style="font-size:11px; color:#7a7f8e; text-align:center; margin-top:10px; font-family:'DM Mono',monospace; letter-spacing:0.1em;">
       To validate this certificate send BRS to 21546
     </p>
+  </div>
+</div>
+
+<!-- ══════════ QUOTE MODAL ══════════ -->
+<div class="modal-overlay" id="quoteModal" onclick="if(event.target===this)closeQuoteModal()">
+  <div class="modal-box" style="max-width:640px;">
+    <button class="modal-close" onclick="closeQuoteModal()">✕</button>
+    <h3>Request a Quote</h3>
+    <p style="font-size:13px; color:#7a7f8e; margin-bottom:24px;">
+      Fill in your details and we'll get back to you within 24 hours.
+    </p>
+
+    <!-- Step indicator -->
+    <div style="display:flex; gap:8px; margin-bottom:28px;" id="stepIndicator">
+      <div class="step-pill active" id="pill1">1. Your Details</div>
+      <div class="step-pill" id="pill2">2. Services</div>
+      <div class="step-pill" id="pill3">3. Notes</div>
+    </div>
+
+    <form id="quoteForm" onsubmit="return false;">
+      {% csrf_token %}
+      <!-- ── STEP 1: Client Details ── -->
+      <div class="quote-step" id="step1">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="qName" placeholder="e.g. John Kamau" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="qPhone" placeholder="e.g. +254 712 345 678" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="qEmail" placeholder="e.g. john@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Location / Area *</label>
+          <input type="text" id="qLocation" placeholder="e.g. Westlands, Nairobi" required/>
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:20px;">
+          <button type="button" class="cta-btn" onclick="goStep(2)">Next →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: Services ── -->
+      <div class="quote-step" id="step2" style="display:none;">
+        <p style="font-size:12px; color:#7a7f8e; margin-bottom:16px;">
+          Select the services you need — extra fields will appear for each.
+        </p>
+
+        <!-- CCTV -->
+        <div class="service-toggle" onclick="toggleService('cctv')">
+          <span>📷 CCTV</span><span class="toggle-arrow" id="arrow-cctv">▸</span>
+        </div>
+        <div class="service-fields" id="fields-cctv">
+          <div class="form-group">
+            <label>Number of Cameras</label>
+            <input type="number" id="cctv-cameras" placeholder="e.g. 4" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Camera Type</label>
+            <select id="cctv-type">
+              <option value="">Select type</option>
+              <option>IP Cameras</option>
+              <option>Analogue Cameras</option>
+              <option>Both</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select id="cctv-service">
+              <option value="">Select service</option>
+              <option>Installation</option>
+              <option>Maintenance</option>
+              <option>Configuration</option>
+              <option>Troubleshooting</option>
+              <option>Relocation</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Biometrics -->
+        <div class="service-toggle" onclick="toggleService('bio')">
+          <span>🫆 Biometrics</span><span class="toggle-arrow" id="arrow-bio">▸</span>
+        </div>
+        <div class="service-fields" id="fields-bio">
+          <div class="form-group">
+            <label>Number of Devices</label>
+            <input type="number" id="bio-devices" placeholder="e.g. 2" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Device Type</label>
+            <select id="bio-type">
+              <option value="">Select type</option>
+              <option>Fingerprint Reader</option>
+              <option>Facial Recognition</option>
+              <option>Iris Scanner</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Access Control -->
+        <div class="service-toggle" onclick="toggleService('access')">
+          <span>🪪 Access Control</span><span class="toggle-arrow" id="arrow-access">▸</span>
+        </div>
+        <div class="service-fields" id="fields-access">
+          <div class="form-group">
+            <label>Number of Access Points</label>
+            <input type="number" id="access-points" placeholder="e.g. 3" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Credential Type</label>
+            <select id="access-cred">
+              <option value="">Select type</option>
+              <option>Card / Fob</option>
+              <option>PIN</option>
+              <option>Card + PIN</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Intercom -->
+        <div class="service-toggle" onclick="toggleService('intercom')">
+          <span>🔔 Intercom</span><span class="toggle-arrow" id="arrow-intercom">▸</span>
+        </div>
+        <div class="service-fields" id="fields-intercom">
+          <div class="form-group">
+            <label>Number of Units</label>
+            <input type="number" id="intercom-units" placeholder="e.g. 1" min="1"/>
+          </div>
+        </div>
+
+        <!-- Razor Wire -->
+        <div class="service-toggle" onclick="toggleService('razor')">
+          <span>⛌ Razor Wire</span><span class="toggle-arrow" id="arrow-razor">▸</span>
+        </div>
+        <div class="service-fields" id="fields-razor">
+          <div class="form-group">
+            <label>Number of Rolls</label>
+            <input type="number" id="razor-rolls" placeholder="e.g. 5" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Material Type</label>
+            <select id="razor-material">
+              <option value="">Select type</option>
+              <option>Stainless Steel</option>
+              <option>PVC Coated</option>
+              <option>Both</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Electric Fence -->
+        <div class="service-toggle" onclick="toggleService('electric')">
+          <span>⚡ Electric Fence</span><span class="toggle-arrow" id="arrow-electric">▸</span>
+        </div>
+        <div class="service-fields" id="fields-electric">
+          <div class="form-group">
+            <label>Approximate Perimeter (metres)</label>
+            <input type="number" id="electric-perimeter" placeholder="e.g. 100" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Property Type</label>
+            <select id="electric-property">
+              <option value="">Select type</option>
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option>Agricultural</option>
+              <option>Industrial</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Networking -->
+        <div class="service-toggle" onclick="toggleService('network')">
+          <span>🌐 Networking</span><span class="toggle-arrow" id="arrow-network">▸</span>
+        </div>
+        <div class="service-fields" id="fields-network">
+          <div class="form-group">
+            <label>Number of Devices to Connect</label>
+            <input type="number" id="network-devices" placeholder="e.g. 10" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Network Type</label>
+            <select id="network-type">
+              <option value="">Select type</option>
+              <option>LAN (Local Network)</option>
+              <option>Internet Setup</option>
+              <option>Both</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button type="button" class="reg-btn" onclick="goStep(1)">← Back</button>
+          <button type="button" class="cta-btn" onclick="goStep(3)">Next →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Notes + Submit ── -->
+      <div class="quote-step" id="step3" style="display:none;">
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea id="qNotes" rows="5"
+            placeholder="Any extra details — e.g. building floors, existing equipment, access restrictions, urgency...">
+          </textarea>
+        </div>
+
+        <div id="quoteError" style="display:none; color:#c0392b; font-size:13px; margin-bottom:12px;"></div>
+        <div id="quoteSuccess" style="display:none; background:rgba(0,180,80,0.1); border:1px solid rgba(0,180,80,0.3); padding:14px 18px; font-size:13px; color:#5dbb7a; margin-bottom:12px;">
+          ✅ Your quote request has been sent! We'll be in touch within 24 hours.
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+          <button type="button" class="reg-btn" onclick="goStep(2)">← Back</button>
+          <button type="button" class="cta-btn" id="submitQuoteBtn" onclick="submitQuote()">
+            Send Request →
+          </button>
+        </div>
+      </div>
+
+    </form>
   </div>
 </div>
 {% bootstrap_javascript %}
@@ -1413,6 +1640,94 @@ transition: opacity 0.2s;
   justify-content: center;
 }
 
+/* ══════════ QUOTE MODAL FORM ══════════ */
+.step-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid #2a2d35;
+  color: #7a7f8e;
+  cursor: default;
+}
+
+.step-pill.active {
+  border-color: #e8b84b;
+  color: #e8b84b;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a7f8e;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: #0d1117;
+  border: 1px solid #2a2d35;
+  color: #e0e2e8;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #e8b84b;
+}
+
+.form-group select option { background: #0d1117; }
+
+.service-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #0d1117;
+  border: 1px solid #2a2d35;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e0e2e8;
+  transition: border-color 0.2s;
+  user-select: none;
+}
+
+.service-toggle:hover { border-color: #e8b84b; }
+.service-toggle.selected { border-color: #e8b84b; color: #e8b84b; }
+
+.toggle-arrow {
+  color: #e8b84b;
+  transition: transform 0.3s;
+  font-size: 12px;
+}
+
+.service-fields {
+  display: none;
+  background: #13151a;
+  border: 1px solid #2a2d35;
+  border-top: none;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.service-fields.open { display: block; }
+
 /* Responsive */
 @media (max-width: 640px) {
   .gallery-section { padding: 44px 24px; }
@@ -1635,5 +1950,168 @@ function closeLightbox() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
 });
+
+// ══════════════════════════════
+// QUOTE MODAL
+// ══════════════════════════════
+function openQuoteModal() {
+  document.getElementById('quoteModal').classList.add('active');
+  goStep(1);
+}
+
+function closeQuoteModal() {
+  document.getElementById('quoteModal').classList.remove('active');
+}
+
+function goStep(n) {
+  [1, 2, 3].forEach(i => {
+    document.getElementById('step' + i).style.display  = i === n ? 'block' : 'none';
+    document.getElementById('pill' + i).classList.toggle('active', i === n);
+  });
+}
+
+// Toggle service section open/closed
+const openServices = new Set();
+
+function toggleService(key) {
+  const fields = document.getElementById('fields-' + key);
+  const arrow  = document.getElementById('arrow-'  + key);
+  const toggle = fields.previousElementSibling;
+
+  if (openServices.has(key)) {
+    openServices.delete(key);
+    fields.classList.remove('open');
+    arrow.style.transform = 'rotate(0deg)';
+    toggle.classList.remove('selected');
+  } else {
+    openServices.add(key);
+    fields.classList.add('open');
+    arrow.style.transform = 'rotate(90deg)';
+    toggle.classList.add('selected');
+  }
+}
+
+// Collect all selected service data
+function collectServices() {
+  const services = [];
+
+  if (openServices.has('cctv')) {
+    services.push({ name: 'CCTV', details:
+      `${document.getElementById('cctv-cameras').value || '?'} cameras, ` +
+      `Type: ${document.getElementById('cctv-type').value || 'Not specified'}, ` +
+      `Service: ${document.getElementById('cctv-service').value || 'Not specified'}`
+    });
+  }
+  if (openServices.has('bio')) {
+    services.push({ name: 'Biometrics', details:
+      `${document.getElementById('bio-devices').value || '?'} devices, ` +
+      `Type: ${document.getElementById('bio-type').value || 'Not specified'}`
+    });
+  }
+  if (openServices.has('access')) {
+    services.push({ name: 'Access Control', details:
+      `${document.getElementById('access-points').value || '?'} access points, ` +
+      `Credential: ${document.getElementById('access-cred').value || 'Not specified'}`
+    });
+  }
+  if (openServices.has('intercom')) {
+    services.push({ name: 'Intercom', details:
+      `${document.getElementById('intercom-units').value || '?'} units`
+    });
+  }
+  if (openServices.has('razor')) {
+    services.push({ name: 'Razor Wire', details:
+      `${document.getElementById('razor-rolls').value || '?'} rolls, ` +
+      `Material: ${document.getElementById('razor-material').value || 'Not specified'}`
+    });
+  }
+  if (openServices.has('electric')) {
+    services.push({ name: 'Electric Fence', details:
+      `Perimeter: ${document.getElementById('electric-perimeter').value || '?'}m, ` +
+      `Property: ${document.getElementById('electric-property').value || 'Not specified'}`
+    });
+  }
+  if (openServices.has('network')) {
+    services.push({ name: 'Networking', details:
+      `${document.getElementById('network-devices').value || '?'} devices, ` +
+      `Type: ${document.getElementById('network-type').value || 'Not specified'}`
+    });
+  }
+
+  return services;
+}
+
+async function submitQuote() {
+  const name     = document.getElementById('qName').value.trim();
+  const phone    = document.getElementById('qPhone').value.trim();
+  const email    = document.getElementById('qEmail').value.trim();
+  const location = document.getElementById('qLocation').value.trim();
+  const notes    = document.getElementById('qNotes').value.trim();
+  const services = collectServices();
+  const errBox   = document.getElementById('quoteError');
+  const sucBox   = document.getElementById('quoteSuccess');
+  const btn      = document.getElementById('submitQuoteBtn');
+
+  errBox.style.display = 'none';
+  sucBox.style.display = 'none';
+
+  // Basic validation
+  if (!name || !phone || !location) {
+    goStep(1);
+    errBox.textContent  = 'Please fill in your name, phone, and location.';
+    errBox.style.display = 'block';
+    return;
+  }
+  if (services.length === 0) {
+    goStep(2);
+    errBox.textContent  = 'Please select at least one service.';
+    errBox.style.display = 'block';
+    return;
+  }
+
+  btn.textContent  = 'Sending...';
+  btn.disabled     = true;
+
+  try {
+    const res = await fetch("{% url 'send_quote' %}", {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body:    JSON.stringify({ name, phone, email, location, services, notes })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      sucBox.style.display = 'block';
+      btn.textContent      = 'Sent ✓';
+      setTimeout(() => closeQuoteModal(), 3000);
+    } else {
+      errBox.textContent   = 'Something went wrong. Please try again or call us directly.';
+      errBox.style.display = 'block';
+      btn.textContent      = 'Send Request →';
+      btn.disabled         = false;
+    }
+  } catch {
+    errBox.textContent   = 'Network error. Please check your connection and try again.';
+    errBox.style.display = 'block';
+    btn.textContent      = 'Send Request →';
+    btn.disabled         = false;
+  }
+}
+
+// CSRF helper for Django
+function getCookie(name) {
+  // First try to get it from the rendered Django csrf input
+  const csrfInput = document.querySelector('[name=csrfmiddlewaretoken]');
+  if (csrfInput) return csrfInput.value;
+
+  // Fallback — read from cookie
+  const cookies = document.cookie.split(';');
+  for (let c of cookies) {
+    c = c.trim();
+    if (c.startsWith(name + '=')) return decodeURIComponent(c.slice(name.length + 1));
+  }
+  return null;
+}
 </script>
 {% endblock %}
