@@ -32,6 +32,9 @@
         <a class="nav-link" href="#gallery">|Our Work|</a>
       </li>
       <li class="nav-item">
+  <a class="nav-link" href="#" onclick="handleQuoteClick(); return false;">|Request Quote|</a>
+</li>
+      <li class="nav-item">
         <a class="nav-link" href="#contact">|Contact|</a>
       </li>
       </ul>
@@ -82,5 +85,14 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   });
 });
 
+  function handleQuoteClick() {
+    // If we are on the index page, open the modal directly
+    if (typeof openQuoteModal === 'function') {
+      openQuoteModal();
+    } else {
+      // Otherwise redirect to index with a flag
+      window.location.href = "{% url 'index' %}?quote=true";
+    }
+  }
 </script>
 {%endblock%}

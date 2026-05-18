@@ -647,7 +647,7 @@
     />
 
     <p style="font-size:11px; color:#7a7f8e; text-align:center; margin-top:10px; font-family:'DM Mono',monospace; letter-spacing:0.1em;">
-      To validate this certificate send BRS to 21546
+      Log in to eCitizen Portal and select the Business Registration Service (BRS) to conduct an official search.
     </p>
   </div>
 </div>
@@ -2112,6 +2112,12 @@ function getCookie(name) {
     if (c.startsWith(name + '=')) return decodeURIComponent(c.slice(name.length + 1));
   }
   return null;
+}
+// Auto open quote modal if redirected from another page
+if (window.location.search.includes('quote=true')) {
+  openQuoteModal();
+  // Clean up the URL without reloading the page
+  window.history.replaceState({}, document.title, window.location.pathname);
 }
 </script>
 {% endblock %}
