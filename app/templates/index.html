@@ -481,11 +481,11 @@
     </h2>
 
     <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
-      <button onclick="openQuoteModal()" class="cta-btn">Request a Quote →</button>
+      <button onclick="openQuoteModal()" class="cta-btn">📝Request a Quote</button>
       <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20free%20site%20survey"
          target="_blank"
          style="background:#e8b84b; color:#0a0a0a; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:14px 24px; text-decoration:none; font-weight:600;">
-        𝑾𝒉𝒂𝒕𝒔𝑨pp|📍Get Free Site Survey| 📝 Request Free Consultation|
+        💬𝑾𝒉𝒂𝒕𝒔𝑨pp|📍Get Free Site Survey| 📝Request Free Consultation|
       </a>
 <!--      <a href="https://wa.me/254710902541?text=Hi,%20I'd%20like%20a%20free%20consultation"-->
 <!--         target="_blank"-->
@@ -601,18 +601,129 @@
   <p class="lightbox-caption" id="lightboxCaption"></p>
 </div>
 
+  <!-- ══════════ BRANDS CAROUSEL ══════════ -->
+<section style="padding: 56px 40px; background: #111214; border-top: 1px solid #2a2d35;">
+  <div style="max-width: 960px; margin: 0 auto;">
+
+    <!-- Section Label -->
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:36px;">
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:0.08em; color:#e0e2e8; white-space:nowrap;">
+        Brands We Work With
+      </h2>
+      <div style="flex:1; height:1px; background:#2a2d35;"></div>
+    </div>
+
+    <!-- Carousel Outer -->
+    <div class="brands-outer">
+      <div class="brands-track" id="brandsTrack">
+
+        <!-- Row 1 — all 14 brands (shuffled) -->
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tp-link.png' %}" alt="TP-Link"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/nemtek.png' %}" alt="Nemtek"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/suprema.png' %}" alt="Suprema"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/centurion.png' %}" alt="Centurion"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/dahua.png' %}" alt="Dahua"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/mikrotik.jpg' %}" alt="Mikrotik"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/zkteco.jpg' %}" alt="ZKTeco"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/hikvision.jpg' %}" alt="Hikvision"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tiandy.png' %}" alt="Tiandy"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/mecer.png' %}" alt="Mecer"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tenda.png' %}" alt="Tenda"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/apc.png' %}" alt="APC"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/cisco.png' %}" alt="Cisco"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/hammer.png' %}" alt="Hammer"/>
+        </div>
+
+        <!-- Row 2 — duplicate for seamless infinite loop -->
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tp-link.png' %}" alt="TP-Link"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/nemtek.png' %}" alt="Nemtek"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/suprema.png' %}" alt="Suprema"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/centurion.png' %}" alt="Centurion"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/dahua.png' %}" alt="Dahua"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/mikrotik.jpg' %}" alt="Mikrotik"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/zkteco.jpg' %}" alt="ZKTeco"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/hikvision.jpg' %}" alt="Hikvision"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tiandy.png' %}" alt="tiandy"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/mecer.png' %}" alt="Mecer"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/tenda.png' %}" alt="Tenda"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/apc.png' %}" alt="APC"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/cisco.png' %}" alt="Cisco"/>
+        </div>
+        <div class="brand-item">
+          <img src="{% static 'images/brands/hammer.png' %}" alt="Hammer"/>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
   <!-- ══════════ CONTACT ══════════ -->
   <div class="contact-strip" id="contact">
     <div>
       <h2>Get In Touch</h2>
       <p>Request a free site assessment or written quotation for your project.</p>
     </div>
-<button onclick="openQuoteModal()" class="cta-btn">Request a Quote →</button>
-    <p>Telephone: +254 710 902 541</p>
+<button onclick="openQuoteModal()" class="cta-btn">📝Request a Quote </button>
+    <a class="cta-btn" href="tel:+254710902541">📞Contact Us:+254 710 902 541</a>
     <a href="https://wa.me/254710902541" target="_blank" class="cta-btn">
     💬WhatsApp Us →
     </a>
-    <button class="reg-btn" onclick="document.getElementById('regModal').classList.add('active')">
+    <p><a href="mailto:cipherdeveloperz@gmail.com" class="cta-btn">✉️Send Email →</a> </p>
+    <button class="cta-btn" onclick="document.getElementById('regModal').classList.add('active')">
     🪪 View Business Registration
   </button>
     <p>© 2026 Cipher Developers And Services, All Rights Reserved.(Established 2018)</p>
@@ -1005,7 +1116,7 @@ position: absolute;
 top: 50%;
 transform: translateY(-50%);
 z-index: 10;
-background: rgba(232,184,75,0.12);
+background: #000;
 border: 1px solid rgba(232,184,75,0.3);
 color: var(--accent);
 width: 44px;
@@ -1552,7 +1663,7 @@ transition: opacity 0.2s;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(232,184,75,0.12);
+  background: #000;
   border: 1px solid rgba(232,184,75,0.3);
   color: #e8b84b;
   width: 40px;
@@ -1782,6 +1893,87 @@ padding-left: 40px;
 main {
 padding: 44px 2px;
 }
+}
+
+/* ══════════ BRANDS CAROUSEL ══════════ */
+.brands-outer {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Fade edges for a smooth entry/exit effect */
+.brands-outer::before,
+.brands-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.brands-outer::before {
+  left: 0;
+  background: linear-gradient(to right, #111214, transparent);
+}
+
+.brands-outer::after {
+  right: 0;
+  background: linear-gradient(to left, #111214, transparent);
+}
+
+.brands-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: brandScroll 30s linear infinite;
+}
+
+.brands-track:hover {
+  animation-play-state: paused; /* pauses on hover */
+}
+
+.brand-item {
+  min-width: 140px;
+  height: 80px;
+  background: #16181c;
+  border: 1px solid #2a2d35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  transition: border-color 0.3s;
+  flex-shrink: 0;
+}
+
+.brand-item:hover {
+  border-color: #e8b84b;
+}
+
+.brand-item img {
+  max-width: 100px;
+  max-height: 48px;
+  object-fit: contain;
+<!--  filter: grayscale(100%) brightness(1.8);-->
+  transition: filter 0.3s;
+  pointer-events: none;
+}
+
+.brand-item:hover img {
+  filter: grayscale(0%) brightness(1); /* shows full colour on hover */
+}
+
+@keyframes brandScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* -50% because track is duplicated */
+}
+
+@media (max-width: 640px) {
+  .brand-item { min-width: 110px; height: 64px; padding: 12px 14px; }
+  .brand-item img { max-width: 80px; max-height: 36px; }
+  .brands-track { animation-duration: 20s; }
 }
 </style>
 {%endblock%}
