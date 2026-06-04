@@ -46,6 +46,12 @@
       <div class="slide-bg"></div>
       <div class="slide-icon">⛌⛌⛌⛌⛌⛌</div>
     </div>
+
+        <!-- Slide 6 — UPS -->
+    <div class="carousel-slide slide-6">
+      <div class="slide-bg"></div>
+      <div class="slide-icon">🔋⚡</div>
+    </div>
   </div>
 
   <!-- Static content overlaid on carousel -->
@@ -53,8 +59,8 @@
 <!--    <div class="badge">Professional Services Portfolio</div>-->
     <h1>Professional Security &amp; <span>Surveillance Solutions</span></h1>
     <p class="tagline" id="carouselTagline">
-      Comprehensive installation, configuration, and maintenance of security systems,
-      protecting people, property, and assets with reliable, professional solutions.
+      Comprehensive installation, configuration & maintenance of security systems,
+      protecting people, property & assets with reliable, professional solutions.
     </p>
   </div>
 
@@ -184,6 +190,11 @@
       <div class="icon">🌐</div>
       <h3>Networking</h3>
       <p>Connect and secure your devices, cameras, biometrics, computers, servers, and phones across reliable LAN or internet infrastructure using routers, switches, and firewalls.</p>
+    </div>
+    <div class="service-card" style="animation-delay:0.35s" id="ups">
+      <div class="icon">🔋⚡</div>
+      <h3>UPS</h3>
+      <p>Keep your security systems and equipment running during power outages. We install, configure, and maintain Uninterruptible Power Supply (UPS) systems that provide instant backup power — protecting your CCTV, access control, networking equipment, and other critical devices from power cuts and surges.</p>
     </div>
   </div>
 
@@ -469,6 +480,51 @@
     </div>
   </div>
 
+    <!-- ══════════ UPS ══════════ -->
+  <div class="pricing-block">
+    <h3>UPS</h3>
+    <p class="sub">Pricing on request — contact us for a site-specific quotation</p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Price</th><th>Deposit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UPS Installation, Configuration, & Maintenance </td>
+          <td class="amount">Quote on request</td>
+          <td class="deposit">50% on confirmation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="req-block">
+    <h4>Services — UPS</h4>
+    <ul class="req-list">
+      <li>UPS Installation</li>
+      <li>Battery Replacement</li>
+      <li>Load Configuration</li>
+      <li>Preventive Maintenance</li>
+      <li>Power Surge Protection Setup</li>
+      <li>Runtime Assessment & Capacity Planning</li>
+    </ul>
+  </div>
+
+  <div class="req-block">
+    <h4>Requirements — UPS</h4>
+    <ul class="req-list">
+      <li>UPS Unit (brand — APC, Mecer, or client supplied)</li>
+      <li>Battery Pack</li>
+      <li>Power Distribution Unit (PDU)Power Distribution Unit (PDU)</li>
+      <li>Surge Protector</li>
+      <li>Ethernet / Serial cable (for network-managed UPS)</li>
+    </ul>
+  </div>
+
+    <div class="note-box">
+      UPS solutions include site power assessment, UPS installation and load configuration, battery maintenance, surge protection setup, and integration with CCTV, access control, and networking systems. Pricing varies by UPS capacity, number of units, and scope of installation.
+    </div>
+  </div>
+
   <!-- ══════════ CALL TO ACTION ══════════ -->
 <section style="background:#0d1117; border-top:1px solid #2a2d35; border-bottom:1px solid #2a2d35; padding:48px 40px;">
   <div style="max-width:960px; margin:0 auto; text-align:center;">
@@ -552,6 +608,11 @@
         </div>
 
         <div class="gallery-item">
+          <img src="{% static 'images/gallery/side_by_side_final.jpg' %}" alt="Access Control" loading="lazy"/>
+          <div class="gallery-caption">UPS</div>
+        </div>
+
+        <div class="gallery-item">
           <img src="{% static 'images/gallery/job_3.jpg' %}" alt="Access Control" loading="lazy"/>
           <div class="gallery-caption">Access Control</div>
         </div>
@@ -567,18 +628,13 @@
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job_5.jpg' %}" alt="Access Control" loading="lazy"/>
-          <div class="gallery-caption">Networking</div>
+          <img src="{% static 'images/gallery/job_5.png' %}" alt="Network Setup" loading="lazy"/>
+          <div class="gallery-caption">Access Network Setup</div>
         </div>
 
         <div class="gallery-item">
-          <img src="{% static 'images/gallery/job_11.png' %}" alt="Access Control" loading="lazy"/>
-          <div class="gallery-caption">Access Control</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="{% static 'images/gallery/job_12.jpg' %}" alt="Access Control" loading="lazy"/>
-          <div class="gallery-caption">Access Control</div>
+          <img src="{% static 'images/gallery/job_12.jpg' %}" alt="Power Supply" loading="lazy"/>
+          <div class="gallery-caption">Access Power Supply</div>
         </div>
 
         <!-- ↑↑ Keep adding more blocks above this line ↑↑ -->
@@ -1085,6 +1141,11 @@ background-image: url('static/images/electric_fence.jpg');
 .slide-5 .slide-bg {
 background-color: #0d100f;
 background-image: url('static/images/razor.jpg');
+}
+
+.slide-6 .slide-bg {
+background-color: #0d100f;
+background-image: url('static/images/gallery/side_by_side_final.jpg');
 }
 
 /* Decorative icon element on right side of slide */
@@ -1878,7 +1939,8 @@ header { height: 420px; }
 .price-table td {
 padding: 13px 0px;}
 .tagline {
-font-size: 13px;
+font-size: 14px;
+margin-top:65px;
 }
 h1 {
 font-family: 'Bebas Neue', sans-serif;
@@ -1938,7 +2000,7 @@ padding: 44px 2px;
 .brand-item {
   min-width: 140px;
   height: 80px;
-  background: #16181c;
+  background: white;
   border: 1px solid #2a2d35;
   display: flex;
   align-items: center;
@@ -1989,11 +2051,12 @@ padding: 44px 2px;
   const tagline       = document.getElementById('carouselTagline');
 
   const taglines = [
-    "🔴 CCTV Installation, Configuration & Maintenance — keeping every corner of your property under reliable watch, 24/7.",
-    "🫆 Biometric & Access Control Systems — grant access based on identity, not just credentials.",
-    "🌐 Structured Network Infrastructure — connecting your cameras, systems and devices across secure, high-performance networks.",
-    "⚡𓈈⚡ Electric Fence Installation — non-lethal perimeter protection that deters intruders effectively.",
-    "⛌⛌⛌⛌ Razor Wire & Perimeter Security — high-tensile barrier solutions for commercial, industrial and residential properties."
+    "🔴 CCTV Installation, Configuration & Maintenance - keeping every corner of your property under reliable watch, 24/7.",
+    "🫆 Biometric & Access Control Systems - grant access based on identity, not just credentials.",
+    "🌐 Structured Network Infrastructure - connecting your cameras, systems and devices across secure, high-performance networks.",
+    "⚡𓈈⚡ Electric Fence Installation - non-lethal perimeter protection that deters intruders effectively.",
+    "⛌⛌⛌⛌ Razor Wire & Perimeter Security - high-tensile barrier solutions for commercial, industrial and residential properties.",
+    "🔋⚡UPS - Installation, Configuration, Maintenance and Servicing .",
   ];
 
   let current = 0;
