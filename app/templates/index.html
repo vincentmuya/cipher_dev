@@ -195,47 +195,65 @@
 
   <div class="services-grid">
     <div class="service-card" style="animation-delay:0.05s" id="cctv">
-      <div class="icon">🔴📷</div>
+      <div class="icon">
+        <img src="{% static 'images/services/cctv.png' %}" alt="CCTV" loading="lazy"/>
+      </div>
       <h3>CCTV</h3>
       <p>Keep your premises under continuous, reliable watch. We install, focus, configure, maintain, troubleshoot, relocate, and activate CCTV systems for any scale of property.</p>
     </div>
     <div class="service-card" style="animation-delay:0.1s" id="razor">
-      <div class="icon">⛌⛌⛌⛌⛌⛌</div>
+      <div class="icon">
+        <img src="{% static 'images/services/razor.png' %}" alt="razor" loading="lazy"/>
+      </div>
       <h3>Razor Wire</h3>
       <p>A high-security perimeter barrier featuring sharp-edged metal blades on high-tensile core wire, designed to deter and obstruct unauthorised entry effectively.</p>
     </div>
     <div class="service-card" style="animation-delay:0.15s" id="biometrics">
-      <div class="icon">🫆</div>
+        <div class="icon">
+        <img src="{% static 'images/services/bio.jpg' %}" alt="bio" loading="lazy"/>
+      </div>
       <h3>Biometrics</h3>
       <p>Grant access using who someone is, not what they carry. Biometric systems verify identity through fingerprints, facial recognition, or iris scans, eliminating lost cards and shared PINs.</p>
     </div>
     <div class="service-card" style="animation-delay:0.2s" id="access">
-      <div class="icon">🪪</div>
+      <div class="icon">
+        <img src="{% static 'images/services/access.png' %}" alt="access" loading="lazy"/>
+      </div>
       <h3>Access Control</h3>
       <p>Manage and restrict entry with credential-based systems using cards, fobs, or PINs. Ideal for controlling access to offices, server rooms, gates, and restricted zones.</p>
     </div>
     <div class="service-card" style="animation-delay:0.25s" id="intercom">
-      <div class="icon">🔔</div>
+      <div class="icon">
+        <img src="{% static 'images/services/inter.jpg' %}" alt="inter" loading="lazy"/>
+      </div>
       <h3>Intercom</h3>
       <p>Enable instant, secure two-way voice communication between entry points and interior spaces, keeping your property connected without relying on public telephone networks.</p>
     </div>
     <div class="service-card" style="animation-delay:0.3s" id="electric">
-      <div class="icon">⚡𓈈⚡</div>
+      <div class="icon">
+        <img src="{% static 'images/services/electric.jpg' %}" alt="electric" loading="lazy"/>
+      </div>
       <h3>Electric Fence</h3>
       <p>A proven security barrier delivering non-lethal, high-voltage low-amperage pulses to deter intruders. Suitable for residential, commercial, and agricultural perimeters.</p>
     </div>
     <div class="service-card" style="animation-delay:0.3s" id="automatic-gate">
-      <div class="icon">ᯤ🚪</div>
+      <div class="icon">
+        <img src="{% static 'images/services/auto.png' %}" alt="automatic-gate" loading="lazy"/>
+      </div>
       <h3>Automatic Gate</h3>
       <p>Control who enters & exits your property without leaving your seat. We install, configure, & maintain automatic gate systems that provide seamless, secure access, integrating with access control, intercoms, and remote operation via remote controls, keypads, or mobile apps for homes, businesses, and industrial properties.</p>
     </div>
     <div class="service-card" style="animation-delay:0.35s" id="networking">
-      <div class="icon">🌐</div>
+      <div class="icon">
+        <img src="{% static 'images/services/network.jpg' %}" alt="network" loading="lazy"/>
+      </div>
       <h3>Networking</h3>
       <p>Connect and secure your devices, cameras, biometrics, computers, servers, and phones across reliable LAN or internet infrastructure using routers, switches, and firewalls.</p>
     </div>
     <div class="service-card" style="animation-delay:0.35s" id="ups">
-      <div class="icon">🔋⚡</div>
+      <div class="icon">
+        <img src="{% static 'images/services/ups.png' %}" alt="ups" loading="lazy"/>
+      </div>
       <h3>UPS</h3>
       <p>Keep your security systems and equipment running during power outages. We install, configure, and maintain Uninterruptible Power Supply (UPS) systems that provide instant backup power — protecting your CCTV, access control, networking equipment, and other critical devices from power cuts and surges.</p>
     </div>
@@ -306,7 +324,11 @@
 
   <!-- Requirements -->
   <div class="req-block">
+  <div class="req-dropdown" onclick="toggleReq('ip')">
     <h4>Requirements — IP Camera System</h4>
+    <span class="req-arrow" id="req-arrow-ip">▸</span>
+  </div>
+  <div class="req-dropdown-content" id="req-ip">
     <ul class="req-list">
       <li>Cat 6 Cable</li>
       <li>NVR (Network Video Recorder)</li>
@@ -319,9 +341,14 @@
       <li>Accessories (pipes, flex, screws, nails, couplers, bends, saddle clips, trunking, adapter boxes, etc.)</li>
     </ul>
   </div>
+</div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('analogue')">
     <h4>Requirements — Analogue Camera System</h4>
+      <span class="req-arrow" id="req-arrow-analogue">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-analogue">
     <ul class="req-list">
       <li>Coaxial / Siamese Cable</li>
       <li>DVR (Digital Video Recorder)</li>
@@ -336,6 +363,7 @@
       <li>Accessories (pipes, flex, screws, nails, couplers, bends, saddle clips, trunking, cable ties, adapter boxes, etc.)</li>
     </ul>
   </div>
+    </div>
 
   <hr class="divider"/>
 
@@ -360,7 +388,11 @@
   </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('material')">
     <h4>Material Types</h4>
+    <span class="req-arrow" id="req-arrow-material">▸</span>
+  </div>
+  <div class="req-dropdown-content" id="req-material">
     <div class="type-row">
       <div class="type-pill">
         Stainless Steel
@@ -371,15 +403,21 @@
         <span>Ksh 2,100 / roll</span>
       </div>
     </div>
+    </div>
   </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('razor')">
     <h4>Requirements — Razor Wire Installation</h4>
+    <span class="req-arrow" id="req-arrow-razor">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-razor">
     <ul class="req-list">
       <li>Steel Nails</li>
       <li>Binding Wire</li>
     </ul>
-  </div>
+      </div>
+    </div>
 
   <hr class="divider"/>
 
@@ -402,7 +440,11 @@
   </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('bio')">
     <h4>Requirements — Biometric System</h4>
+      <span class="req-arrow" id="req-arrow-bio">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-bio">
     <ul class="req-list">
       <li>12V Power Supply</li>
       <li>Backup Battery</li>
@@ -414,6 +456,7 @@
       <li>Ethernet Cable (if online connection required)</li>
     </ul>
   </div>
+    </div>
 
   <hr class="divider"/>
 
@@ -436,7 +479,11 @@
   </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('acc')">
     <h4>Requirements — Access Control System</h4>
+      <span class="req-arrow" id="req-arrow-acc">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-acc">
     <ul class="req-list">
       <li>12V Power Supply</li>
       <li>Backup Battery</li>
@@ -447,6 +494,7 @@
       <li>Ethernet Cable (if online connection required)</li>
     </ul>
   </div>
+    </div>
 
   <hr class="divider"/>
 
@@ -469,13 +517,18 @@
   </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('inter')">
     <h4>Requirements — Intercom System</h4>
+      <span class="req-arrow" id="req-arrow-inter">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-inter">
     <ul class="req-list">
       <li>Alarm Cable (4-core or 6-core)</li>
       <li>Cat 6 Cable</li>
       <li>RJ45 Connectors</li>
     </ul>
   </div>
+    </div>
 
   <hr class="divider"/>
 
@@ -520,7 +573,11 @@
     </table>
 
     <div class="req-block">
+      <div class="req-dropdown" onclick="toggleReq('auto-service')">
     <h4>Services — Automatic Gate</h4>
+        <span class="req-arrow" id="req-arrow-auto-service">▸</span>
+  </div>
+      <div class="req-dropdown-content" id="req-auto-service">
     <ul class="req-list">
       <li>Gate Motor Installation</li>
       <li>Configuration & Programming</li>
@@ -530,9 +587,14 @@
       <li>Fault Diagnosis & Repair</li>
     </ul>
   </div>
+      </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('auto-req')">
     <h4>Requirements — Automatic Gate</h4>
+      <span class="req-arrow" id="req-arrow-auto-req">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-auto-req">
     <ul class="req-list">
       <li>Gate Motor (sliding or swing)</li>
       <li>Remote Controls</li>
@@ -543,6 +605,7 @@
       <li>Intercom / Access Control (optional integration)</li>
     </ul>
   </div>
+    </div>
 
     <div class="note-box">
 Automatic gate solutions include site assessment, gate motor installation and programming, remote control configuration, safety beam setup, battery backup integration, and synchronisation with access control and intercom systems. Pricing varies by gate type, motor capacity, and scope of installation.    </div>
@@ -591,6 +654,11 @@ Automatic gate solutions include site assessment, gate motor installation and pr
     </table>
 
     <div class="req-block">
+      <div class="req-dropdown" onclick="toggleReq('ups-ser')">
+        <h4>Services — UPS</h4>
+            <span class="req-arrow" id="req-arrow-ups-ser">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-ups-ser">
     <h4>Services — UPS</h4>
     <ul class="req-list">
       <li>UPS Installation</li>
@@ -601,9 +669,14 @@ Automatic gate solutions include site assessment, gate motor installation and pr
       <li>Runtime Assessment & Capacity Planning</li>
     </ul>
   </div>
+      </div>
 
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('ups-req')">
     <h4>Requirements — UPS</h4>
+      <span class="req-arrow" id="req-arrow-ups-req">▸</span>
+  </div>
+    <div class="req-dropdown-content" id="req-ups-req">
     <ul class="req-list">
       <li>UPS Unit (brand — APC, Mecer, or client supplied)</li>
       <li>Battery Pack</li>
@@ -612,6 +685,7 @@ Automatic gate solutions include site assessment, gate motor installation and pr
       <li>Ethernet / Serial cable (for network-managed UPS)</li>
     </ul>
   </div>
+    </div>
 
     <div class="note-box">
       UPS solutions include site power assessment, UPS installation and load configuration, battery maintenance, surge protection setup, and integration with CCTV, access control, and networking systems. Pricing varies by UPS capacity, number of units, and scope of installation.
@@ -1448,7 +1522,17 @@ font-size: 13.5px;
 color: var(--muted);
 line-height: 1.75;
 }
-
+.icon img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .icon img { min-width: calc((100% - 16px) / 2); }
+}
 /* ── PRICING TABLES ── */
 .pricing-block {
 margin-bottom: 56px;
@@ -2037,7 +2121,7 @@ header { height: 420px; }
 .contact-strip { padding: 28px 24px; }
 .camera-compare { grid-template-columns: 1fr; }
 .price-table td {
-padding: 13px 10px;}
+padding: 13px 0px;}
 .tagline {
 font-size: 14px;
 margin-top:65px;
@@ -2136,6 +2220,55 @@ padding: 44px 2px;
   .brand-item { min-width: 110px; height: 64px; padding: 12px 14px; }
   .brand-item img { max-width: 80px; max-height: 36px; }
   .brands-track { animation-duration: 20s; }
+}
+/* ══════════ REQUIREMENTS DROPDOWN ══════════ */
+.req-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #16181c;
+  border: 1px solid #2a2d35;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  user-select: none;
+}
+
+.req-dropdown:hover {
+  border-color: #e8b84b;
+}
+
+.req-dropdown.open {
+  border-color: #e8b84b;
+  border-bottom: 1px solid #2a2d35;
+}
+
+.req-dropdown h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8b84b;
+  margin: 0;
+}
+
+.req-arrow {
+  color: #e8b84b;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.req-dropdown-content {
+  display: none;
+  background: #13151a;
+  border: 1px solid #e8b84b;
+  border-top: none;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.req-dropdown-content.open {
+  display: block;
 }
 </style>
 {%endblock%}
@@ -2473,6 +2606,21 @@ if (window.location.search.includes('quote=true')) {
   openQuoteModal();
   // Clean up the URL without reloading the page
   window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+// ══════════════════════════════
+// REQUIREMENTS DROPDOWN
+// ══════════════════════════════
+function toggleReq(key) {
+  const content = document.getElementById('req-' + key);
+  const arrow   = document.getElementById('req-arrow-' + key);
+  const header  = content.previousElementSibling;
+
+  const isOpen = content.classList.contains('open');
+
+  content.classList.toggle('open', !isOpen);
+  arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+  header.classList.toggle('open', !isOpen);
 }
 </script>
 {% endblock %}
