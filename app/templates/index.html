@@ -309,7 +309,11 @@
 
   <!-- Camera Types -->
   <div class="req-block">
+    <div class="req-dropdown" onclick="toggleReq('cctv-type')">
     <h4>Camera Types</h4>
+      <span class="req-arrow" id="req-arrow-cctv-type">▸</span>
+  </div>
+  <div class="req-dropdown-content" id="req-cctv-type">
     <div class="camera-compare">
       <div class="cam-card">
         <h4>IP Cameras</h4>
@@ -319,6 +323,7 @@
         <h4>Analogue Cameras</h4>
         <p>Send raw video signals over coaxial cable to a DVR for processing. A cost-effective and reliable solution for standard-resolution surveillance requirements.</p>
       </div>
+    </div>
     </div>
   </div>
 
